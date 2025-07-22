@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rijoy | Electrical Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e40af",
+              secondary: "#3b82f6",
+              light: "#f8fafc",
+              dark: "#334155",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .section-padding {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #1e40af;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .active-nav::after {
+        width: 100%;
+      }
+
+      .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+    </style>
+  </head>
+  <body class="bg-light text-dark">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="#home" class="text-2xl font-bold text-primary">Rijoy</a>
+
+        <!-- Mobile menu button -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="nav-link active-nav text-dark hover:text-primary font-medium"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-dark hover:text-primary font-medium"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="nav-link text-dark hover:text-primary font-medium"
+            >Projects</a
+          >
+          <a
+            href="#resume"
+            class="nav-link text-dark hover:text-primary font-medium"
+            >Resume</a
+          >
+          <a
+            href="#blog"
+            class="nav-link text-dark hover:text-primary font-medium"
+            >Blog</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-dark hover:text-primary font-medium"
+            >Contact</a
+          >
+        </nav>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav id="mobile-menu" class="hidden bg-white px-4 py-4 md:hidden">
+        <div class="flex flex-col space-y-4">
+          <a href="#home" class="text-dark hover:text-primary font-medium py-2"
+            >Home</a
+          >
+          <a href="#about" class="text-dark hover:text-primary font-medium py-2"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="text-dark hover:text-primary font-medium py-2"
+            >Projects</a
+          >
+          <a
+            href="#resume"
+            class="text-dark hover:text-primary font-medium py-2"
+            >Resume</a
+          >
+          <a href="#blog" class="text-dark hover:text-primary font-medium py-2"
+            >Blog</a
+          >
+          <a
+            href="#contact"
+            class="text-dark hover:text-primary font-medium py-2"
+            >Contact</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-white pt-20"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-dark"
+            >
+              Hi, I'm <span class="text-primary">Rijoy</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl font-medium text-gray-600 mb-6">
+              Electrical Engineering Student
+            </h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-lg">
+              Passionate about electrical systems, circuit design, and
+              innovative technologies. Exploring the intersection of engineering
+              and sustainable solutions.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#contact"
+                class="bg-primary hover:bg-blue-800 text-white font-medium py-3 px-6 rounded-md transition duration-300 shadow-md"
+              >
+                Get in Touch
+              </a>
+              <a
+                href="#projects"
+                class="border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-md transition duration-300"
+              >
+                View My Work
+              </a>
+            </div>
+            <div class="mt-8 flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-600 hover:text-primary transition-colors"
+              >
+                <i class="fab fa-linkedin text-2xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-600 hover:text-primary transition-colors"
+              >
+                <i class="fab fa-github text-2xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-600 hover:text-primary transition-colors"
+              >
+                <i class="fab fa-twitter text-2xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-600 hover:text-primary transition-colors"
+              >
+                <i class="fas fa-envelope text-2xl"></i>
+              </a>
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div class="relative">
+              <div
+                class="w-64 h-64 md:w-80 md:h-80 bg-secondary rounded-full absolute opacity-10"
+              ></div>
+              <div
+                class="w-80 h-80 md:w-200 md:h-200 relative z-10 flex items-center justify-center"
+              >
+                <img
+                  style="border-radius: 9999px"
+                  src="https://i.ibb.co/MyrfxJfk/rijoy.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-8 md:mb-0">
+            <div class="relative">
+              <div
+                class="w-full h-80 bg-gray-100 rounded-lg relative z-10 overflow-hidden"
+              >
+                <svg
+                  class="w-full h-full text-gray-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="absolute top-4 left-4 w-full h-80 border-4 border-primary rounded-lg"
+              ></div>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 md:pl-12">
+            <h3 class="text-2xl font-bold mb-4 text-primary">
+              Electrical Engineering Student
+            </h3>
+            <p class="text-gray-600 mb-4">
+              I'm currently pursuing my degree in Electrical Engineering, with a
+              focus on power systems and renewable energy technologies. My
+              academic journey has equipped me with strong analytical skills and
+              a deep understanding of electrical principles.
+            </p>
+            <p class="text-gray-600 mb-6">
+              Beyond my studies, I enjoy working on DIY electronics projects,
+              participating in robotics competitions, and exploring the latest
+              advancements in sustainable energy solutions. I believe in the
+              power of technology to create positive change in the world.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <span class="text-gray-700">Circuit Design</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <span class="text-gray-700">Power Systems</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <span class="text-gray-700">Renewable Energy</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <span class="text-gray-700">Microcontrollers</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <span class="text-gray-700">Signal Processing</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <span class="text-gray-700">Embedded Systems</span>
+              </div>
+            </div>
+
+            <a
+              href="#contact"
+              class="inline-block bg-primary hover:bg-blue-800 text-white font-medium py-3 px-6 rounded-md transition duration-300"
+            >
+              Let's Connect
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Here are some of the academic and personal projects I've worked on
+            during my studies and in my free time.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <svg
+                class="w-24 h-24 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-primary">
+                Solar-Powered IoT Weather Station
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Designed and built a weather monitoring system powered by solar
+                energy that collects and transmits environmental data
+                wirelessly.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Arduino</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >IoT</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Solar</span
+                >
+              </div>
+              <a
+                href="#"
+                class="text-primary hover:text-blue-700 font-medium inline-flex items-center"
+              >
+                View Details
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <svg
+                class="w-24 h-24 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-primary">
+                Smart Home Energy Management
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Developed a system to monitor and optimize household energy
+                consumption using machine learning algorithms.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Raspberry Pi</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >ML</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Python</span
+                >
+              </div>
+              <a
+                href="#"
+                class="text-primary hover:text-blue-700 font-medium inline-flex items-center"
+              >
+                View Details
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <svg
+                class="w-24 h-24 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-primary">
+                Automated Plant Irrigation System
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Created a soil moisture monitoring system that automatically
+                waters plants when needed, with mobile app control.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >ESP32</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Sensors</span
+                >
+                <span
+                  class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                  >Mobile App</span
+                >
+              </div>
+              <a
+                href="#"
+                class="text-primary hover:text-blue-700 font-medium inline-flex items-center"
+              >
+                View Details
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-flex items-center bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-md transition duration-300"
+          >
+            View All Projects
+            <svg
+              class="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section-padding bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Resume</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            My educational background, skills, and experiences in the field of
+            electrical engineering.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Education -->
+          <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center text-primary">
+              <svg
+                class="w-6 h-6 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 14l9-5-9-5-9 5 9 5z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+                ></path>
+              </svg>
+              Education
+            </h3>
+
+            <div class="space-y-8">
+              <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-primary">
+                <div class="flex justify-between items-start">
+                  <h4 class="text-lg font-semibold">
+                    Bachelor of Science in Electrical Engineering
+                  </h4>
+                  <span
+                    class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                    >2020 - Present</span
+                  >
+                </div>
+                <p class="text-gray-600 mt-1">University Name</p>
+                <p class="text-gray-600 mt-3">
+                  Focusing on power systems, renewable energy, and control
+                  systems. Maintaining a GPA of 3.8/4.0.
+                </p>
+              </div>
+
+              <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-300">
+                <div class="flex justify-between items-start">
+                  <h4 class="text-lg font-semibold">High School Diploma</h4>
+                  <span
+                    class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                    >2016 - 2020</span
+                  >
+                </div>
+                <p class="text-gray-600 mt-1">High School Name</p>
+                <p class="text-gray-600 mt-3">
+                  Graduated with honors. Participated in science and mathematics
+                  competitions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center text-primary">
+              <svg
+                class="w-6 h-6 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                ></path>
+              </svg>
+              Skills
+            </h3>
+
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-lg font-semibold mb-4">Technical Skills</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700">Circuit Design</span>
+                      <span class="text-gray-600 text-sm">90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 90%"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700">PCB Layout</span>
+                      <span class="text-gray-600 text-sm">85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 85%"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700">Microcontrollers</span>
+                      <span class="text-gray-600 text-sm">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 80%"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700">Power Systems</span>
+                      <span class="text-gray-600 text-sm">75%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 75%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="text-lg font-semibold mb-4">Software Skills</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700">MATLAB</span>
+                      <span class="text-gray-600 text-sm">85%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 85%"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700">Arduino/C++</span>
+                      <span class="text-gray-600 text-sm">90%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 90%"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700">AutoCAD</span>
+                      <span class="text-gray-600 text-sm">70%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 70%"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-gray-700">Python</span>
+                      <span class="text-gray-600 text-sm">80%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        class="bg-primary h-2 rounded-full"
+                        style="width: 80%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-flex items-center bg-primary hover:bg-blue-800 text-white font-medium py-3 px-6 rounded-md transition duration-300"
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              ></path>
+            </svg>
+            Download Full Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section-padding bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Blog</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Sharing my thoughts, experiences, and insights about electrical
+            engineering and technology.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Blog Post 1 -->
+          <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <svg
+                class="w-24 h-24 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-2">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                May 15, 2023
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-primary">
+                The Future of Renewable Energy Storage
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Exploring the latest advancements in battery technology and how
+                they're revolutionizing renewable energy storage solutions.
+              </p>
+              <a
+                href="#"
+                class="text-primary hover:text-blue-700 font-medium inline-flex items-center"
+              >
+                Read More
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 2 -->
+          <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <svg
+                class="w-24 h-24 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-2">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                April 22, 2023
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-primary">
+                Getting Started with Arduino: A Beginner's Guide
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A comprehensive introduction to Arduino for beginners, covering
+                basic concepts and simple projects to get started.
+              </p>
+              <a
+                href="#"
+                class="text-primary hover:text-blue-700 font-medium inline-flex items-center"
+              >
+                Read More
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 3 -->
+          <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="h-48 bg-gray-200 flex items-center justify-center">
+              <svg
+                class="w-24 h-24 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-2">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                March 10, 2023
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-primary">
+                Understanding Power Factor Correction
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Explaining the importance of power factor correction in
+                electrical systems and how it can lead to energy savings.
+              </p>
+              <a
+                href="#"
+                class="text-primary hover:text-blue-700 font-medium inline-flex items-center"
+              >
+                Read More
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-flex items-center bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-md transition duration-300"
+          >
+            View All Posts
+            <svg
+              class="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Have a question or want to collaborate? Feel free to reach out to me
+            using the form below.
+          </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12">
+          <div class="lg:w-1/2">
+            <form class="space-y-6">
+              <div>
+                <label for="name" class="block text-gray-700 font-medium mb-2"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Your Name"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Your Email"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="subject"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Subject"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="message"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Your Message"
+                ></textarea>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  class="w-full bg-primary hover:bg-blue-800 text-white font-medium py-3 px-6 rounded-md transition duration-300"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div class="bg-gray-50 p-8 rounded-lg h-full">
+              <h3 class="text-2xl font-bold mb-6 text-primary">
+                Contact Information
+              </h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="bg-primary rounded-full p-3 mr-4">
+                    <svg
+                      class="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold mb-1">Phone</h4>
+                    <p class="text-gray-600">+1 (123) 456-7890</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="bg-primary rounded-full p-3 mr-4">
+                    <svg
+                      class="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold mb-1">Email</h4>
+                    <p class="text-gray-600">rijoy@example.com</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="bg-primary rounded-full p-3 mr-4">
+                    <svg
+                      class="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold mb-1">Location</h4>
+                    <p class="text-gray-600">University Campus, City, State</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8">
+                <h4 class="text-lg font-semibold mb-4">Connect With Me</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="#"
+                    class="bg-gray-200 hover:bg-primary hover:text-white text-gray-600 p-3 rounded-full transition duration-300"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-gray-200 hover:bg-primary hover:text-white text-gray-600 p-3 rounded-full transition duration-300"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-gray-200 hover:bg-primary hover:text-white text-gray-600 p-3 rounded-full transition duration-300"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-gray-200 hover:bg-primary hover:text-white text-gray-600 p-3 rounded-full transition duration-300"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a href="#home" class="text-2xl font-bold">Rijoy</a>
+            <p class="text-gray-400 mt-2">Electrical Engineering Student</p>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-4 mb-6 md:mb-0">
+            <a
+              href="#home"
+              class="text-gray-300 hover:text-white transition duration-300"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-300 hover:text-white transition duration-300"
+              >About</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-300 hover:text-white transition duration-300"
+              >Projects</a
+            >
+            <a
+              href="#resume"
+              class="text-gray-300 hover:text-white transition duration-300"
+              >Resume</a
+            >
+            <a
+              href="#blog"
+              class="text-gray-300 hover:text-white transition duration-300"
+              >Blog</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-white transition duration-300"
+              >Contact</a
+            >
+          </div>
+
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white transition duration-300"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white transition duration-300"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white transition duration-300"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-300 hover:text-white transition duration-300"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2023 Rijoy. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Active navigation link
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active-nav");
+          if (link.getAttribute("href").substring(1) === current) {
+            link.classList.add("active-nav");
+          }
+        });
+      });
+
+      // Form submission (demo)
+      const contactForm = document.querySelector("form");
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+
+        // In a real application, you would send this data to a server
+        console.log("Form submitted:", { name, email, subject, message });
+
+        // Reset form
+        contactForm.reset();
+
+        // Show success message (in a real app)
+        alert("Thank you for your message! This is a demo form.");
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'96306d1bc2fda491',t:'MTc1MzE2MDk2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
